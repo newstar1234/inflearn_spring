@@ -8,35 +8,28 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.hello.springhello.domain.Member;
+import com.hello.springhello.repository.MemberRepository;
 import com.hello.springhello.repository.MemoryMemberRepository;
 
-public class MemberServiceTest {
+@SpringBootTest
+@Transactional // 테스트 케이스에 이 어노테이션 -> 테스트 시작 전에 트랜잭션 시작하고 테스트 끝나고 롤백해줌
+public class MemberServiceIntergrationTest {
+    
+    // 통합 테스트
 
-    // 단위 테스트 
-
-    MemberService memberService;
-    MemoryMemberRepository memberRepository;
-
-    @BeforeEach
-    public void beforeEach() {
-
-        memberRepository = new MemoryMemberRepository();
-        memberService = new MemberService(memberRepository);
-
-    }
-
-    @AfterEach
-    public void afterEach() {
-        memberRepository.clearStore();
-    }
+    @Autowired MemberService memberService;
+    @Autowired MemberRepository memberRepository;
 
     @Test
-    void testJoin() {
+    void 회원가입() {
         // given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("spring");
 
         // when
         Long saveId = memberService.join(member);
@@ -71,14 +64,5 @@ public class MemberServiceTest {
         // then
     }
 
-    @Test
-    void testFindMembers() {
-
-    }
-
-    @Test
-    void testFindOne() {
-
-    }
 
 }
