@@ -17,7 +17,6 @@ public class OrderSteps {
                 .log().all().extract();
     } 
 
-
     public static CreateOrderRequest 상품주문요청_생성() {
         
         final Long productId = 1L;
