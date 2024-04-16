@@ -1,4 +1,4 @@
-package com.example.productorderservice.order;
+package com.example.productorderservice.order.domain;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GeneratorType;
 import org.springframework.util.Assert;
 
-import com.example.productorderservice.product.Product;
+import com.example.productorderservice.product.domain.Product;
 
 import lombok.NoArgsConstructor;
 

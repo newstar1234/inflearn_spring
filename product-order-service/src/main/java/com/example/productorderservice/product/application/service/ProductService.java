@@ -1,4 +1,4 @@
-package com.example.productorderservice.product;
+package com.example.productorderservice.product.application.service;
 
 import javax.transaction.Transactional;
 
@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.productorderservice.product.application.port.ProductPort;
+import com.example.productorderservice.product.domain.Product;
 
 @RestController
 @RequestMapping("/products")
